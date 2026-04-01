@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Audio Async MLOps Pipeline
 
 FastAPI 기반의 비동기 오디오-MIDI 변환 파이프라인(basic-pitch)입니다. 
@@ -32,3 +33,6 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 - 응답으로 처리된 `.mid` 파일 다운로드.
 
 > **참고:** 변환 요청이 완료될 때까지 기다리는 동기식 응답을 합니다. 만약 요청이 매우 오래 걸리는 긴 오디오 파일이라면, 클라이언트 쪽에서 TimeOut이 발생하지 않도록 조의가 필요하거나 향후 Job Queue(Celery) 기반의 비동기 웹훅 연동으로 커스터마이즈하시는 것을 추천합니다.
+=======
+# HW2
+>>>>>>> 2b4b6c440d2f8aa11b1bd840951adee0a9ac85f3
