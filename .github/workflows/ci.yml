@@ -45,13 +45,11 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Docker Pull Latest Image
-        shell: bash
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/audio-mlops-api:latest
 
       - name: Remove Existing Container
-        shell: bash
-        run: docker rm -f audio-mlops-api || true
+        run: docker rm -f audio-mlops-api
+        continue-on-error: true
 
       - name: Run New Container
-        shell: bash
         run: docker run -d --name audio-mlops-api -p 8000:8000 --restart unless-stopped ${{ secrets.DOCKER_USERNAME }}/audio-mlops-api:latest
