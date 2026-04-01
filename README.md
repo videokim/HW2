@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # Audio Async MLOps Pipeline
 
-FastAPI 기반의 비동기 오디오-MIDI 변환 파이프라인(basic-pitch)입니다. 
+FastAPI 기반의 비동기 오디오-MIDI 변환 파이프라인 (basic-pitch)입니다. 
 
 ## 프로젝트 구조 (설계 의도)
 머신러닝(ML) 모델 추론은 연산량이 높아(CPU/GPU bound) 단일 스레드 비동기 서버인 FastAPI의 이벤트 루프를 막아버릴(blocking) 수 있습니다. 
