@@ -20,9 +20,9 @@ app = FastAPI(
 async def startup_event():
     logger.info("Starting up application...")
     # ProcessPoolExecutor allows heavy basic-pitch inference to not block async event loop
-    # Limit max workers (e.g. 2-4) to prevent CPU/RAM overload depending on deployment size
-    app.state.executor = ProcessPoolExecutor(max_workers=2)
-    logger.info("ProcessPoolExecutor started with 2 workers.")
+    # Limit max workers to 1 due to heavy CPU/RAM usage of Demucs + Basic Pitch
+    app.state.executor = ProcessPoolExecutor(max_workers=1)
+    logger.info("ProcessPoolExecutor started with 1 worker.")
 
 @app.on_event("shutdown")
 async def shutdown_event():

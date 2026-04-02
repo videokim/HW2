@@ -44,7 +44,7 @@ async def convert_audio_to_midi(
         executor = request.app.state.executor
         
         # Wrap CPU-bound operation
-        midi_path = await loop.run_in_executor(
+        zip_path = await loop.run_in_executor(
             executor,
             process_audio_to_midi_sync,
             saved_audio_path,
@@ -56,9 +56,9 @@ async def convert_audio_to_midi(
         
         # 5. Return the file
         return FileResponse(
-            path=midi_path,
-            media_type="audio/midi",
-            filename=f"converted_{task_id}.mid"
+            path=zip_path,
+            media_type="application/zip",
+            filename=f"separated_midi_{task_id}.zip"
         )
         
     except Exception as e:
